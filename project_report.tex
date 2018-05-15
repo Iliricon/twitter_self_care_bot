@@ -7,7 +7,8 @@
 \usepackage{longtable}
 \usepackage{multirow}
 \usepackage{booktabs}
-
+\usepackage[backend=biber,sorting=none]{biblatex}
+\bibliography{library.bib}
 
 \newlength{\longtablewidth}
 \setlength{\longtablewidth}{0.7\linewidth}
@@ -22,7 +23,6 @@
 \subtitle{Michael Troung-Ngoc\\Saidamir Ubaydullaev\\Claas V"olcker}
 %\setinstitutionlogo[width]{TUD_sublogo}
 \institution{Deep Learning - Architectures \& Methods\\Machine Learning Group}
-
 \begin{document}
 \maketitle
 %\begin{abstract}
@@ -46,6 +46,7 @@ Michael
 
 
 \section*{Data}
+\label{data}
 \begin{itemize}
     \item possible sources
     \begin{itemize}
@@ -85,8 +86,11 @@ The project should also be seen as a proof-of-concept. Providing such a service 
 
 \subsection*{Project approach}
 
-After obtaining the data, we will first focus on building a state-of-the-art classifier to decide whether a tweet shows symptoms of depression. The implementations and results described in (add papers here) will be used as a baseline for a neural network based approach. Once the model is able to accurately classify tweets, we will build the monitoring application. The system will take the form of a Twitter bot which actively monitors users. Since it is only viable (and ethical) to monitor consenting users, interested individuals will be asked to register on a seperate page and provide some information on what kind of intervention they are looking for. The bot then establishes a baseline for the newly registered users by classifying recent tweets of this user. Since some users might regularly post content which shows signs of depression without actually suffering, others might be more upbeat in general. The bot should only intervene if a user starts to show more signs of a depression then normally.
+After obtaining the data, we will first focus on building a state-of-the-art classifier to decide whether a tweet shows symptoms of depression. The implementations and results described in (\cite{nadeem_identifying_2016,coppersmith2015clpsych,jamil_monitoring_2017}) will be used as a baseline for a neural network based approach. Once the model is able to accurately classify tweets, we will build the monitoring application. The system will take the form of a Twitter bot which actively monitors users. Since it is only viable (and ethical) to monitor consenting users, interested individuals will be asked to register on a seperate page and provide some information on what kind of intervention they are looking for. The bot then establishes a baseline for the newly registered users by classifying recent tweets of this user. Since some users might regularly post content which shows signs of depression without actually suffering, others might be more upbeat in general. The bot should only intervene if a user starts to show more signs of a depression then normally.
 
 After building a model and the related client, we will evaluate the performance of the bot with artificial accounts prior to 
+
+%\bibliographystyle{acm}
+\printbibliography 
 
 \end{document}
