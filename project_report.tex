@@ -9,16 +9,6 @@
 \usepackage{booktabs}
 
 
-%%% Zum Tester der Marginalien %%%
-  \newif\ifTUDmargin\TUDmarginfalse
-  %%% Wird der Folgende Zeile einkommentiert,
-  %%% werden Marginalien gesetzt.
-  % \TUDmargintrue
-  \ifTUDmargin\makeatletter
-    \TUD@setmarginpar{2}
-  \makeatother\fi
-%%% ENDE: Zum Tester der Marginalien %%%
-
 \newlength{\longtablewidth}
 \setlength{\longtablewidth}{0.7\linewidth}
 \addtolength{\longtablewidth}{-\marginparsep}
@@ -32,8 +22,6 @@
 \subtitle{Michael Troung-Ngoc\\Saidamir Ubaydullaev\\Claas V"olcker}
 %\setinstitutionlogo[width]{TUD_sublogo}
 \institution{Deep Learning - Architectures \& Methods\\Machine Learning Group}
-%\sponsor{\color{tud9b}\rule{\linewidth}{7mm}}
-\sponsor{\hfill\includegraphics[height=6ex]{tud_logo}\hspace{1em}\includegraphics[height=6ex]{TUD_chaos}}
 
 \begin{document}
 \maketitle
@@ -41,9 +29,9 @@
 %    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed vitae ligula. Integer pharetra ornare eros. Phasellus vitae magna eget metus iaculis consectetuer. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut fringilla, elit id bibendum pharetra, enim nunc commodo lacus, vel consequat pede elit et massa. Nullam ac neque vel dui sodales malesuada. Phasellus sit amet magna. Nulla nisl metus, dictum et, ultricies vel, vestibulum ut, sem. Nulla nulla felis, gravida non, feugiat eget, interdum non, urna. Nunc nulla nunc, placerat pretium, varius in, dignissim a, eros. Quisque consequat, leo sit amet adipiscing pellentesque, nisl elit iaculis ipsum, quis tincidunt purus risus pulvinar enim. Nulla laoreet. Cras ullamcorper libero eget velit. Nam vel enim id tortor dignissim egestas. Pellentesque mi quam, porttitor sed, nonummy in, semper vitae, nisl. Duis ut dolor ut sem auctor dapibus. Nulla urna pede, facilisis a, hendrerit non, tincidunt vitae, orci. Mauris tincidunt posuere magna. Fusce blandit.
 %\end{abstract}  
 
-\tableofcontents
+%\tableofcontents
 
-\chapter{Introduction}
+\section*{Introduction}
 
 \begin{itemize}
     \item describe depression (very short)
@@ -51,31 +39,13 @@
     \item describe problem - care bots are general and not targeted
     \item describe possible solution: targeted and proactive self-care bla
     \item namedrop many papers
+    \item Goal: to showcase how deep learning can be used for a variety of real-world applications
 \end{itemize}
 
 Michael
 
-\chapter{Project Outline}
 
-\begin{itemize}
-    \item gather data
-    \item preprocessing and infrastructure
-    \item build \& train machine learning model
-    \item test model
-    \item specify end goals and possible interventions of bot
-    \item build bot
-    \item test bot
-    \item get input form professionals, if possible, or at least users
-    \item look at possible additions and further uses of the bot
-    \begin{itemize}
-        \item e.g. location services and targeted intervention (local phone counseling, etc.)
-        \item chat bot o."a.
-    \end{itemize}
-\end{itemize}
-
-Claas
-
-\chapter{Data}
+\section*{Data}
 \begin{itemize}
     \item possible sources
     \begin{itemize}
@@ -86,5 +56,37 @@ Claas
 \end{itemize}
 
 Saidamir
+
+\section*{Project Outline}
+
+%\begin{itemize}
+%    \item gather data
+%    \item preprocessing and infrastructure
+%    \item build \& train machine learning model
+%    \item test model
+%    \item specify end goals and possible interventions of bot
+%    \item build bot
+%    \item test bot
+%    \item get input form professionals, if possible, or at least users
+%    \item look at possible additions and further uses of the bot
+%    \begin{itemize}
+%        \item e.g. location services and targeted intervention (local phone counseling, etc.)
+%        \item chat bot o."a.
+%    \end{itemize}
+%\end{itemize}
+
+The main component of the Twitter SelfCare Bot is a service, which reads users' tweets and monitors their percieved mental health. Whenever the mental health of a user seems to degrade, for example due to tweets which show more signs of depression, the bot intervenes and posts helpful self-care hints. The details of this intervention need to be specified at a later steps. Possible components could range from general self-care tips to concrete solutions based on the location and history of the user.
+
+To enable the bot to autonomously monitor users and their behavior, the patterns common among users suffering from depression can be learned as outlined in Chapter \ref{data}. Using the datasets, a classifier based on a neural network will be trained to categorize a users tweets. If several tweets during a specific amount of time are classified as showing symptoms of a depression, the bot classifies the user as ''at risk'' and starts the intervention.
+
+It is important to stress that such a system can not replace a professional diagnosis and therapy. It is also questionable whether it can have a lasting effect on users with severe cases of clinical depression. It is however possible to help users who struggle with mild depression and related diseases and can be a part of holistic strategy of self-care and mindfulness.
+
+The project should also be seen as a proof-of-concept. Providing such a service for a larger audience should only be conducted in close cooperation with health-care professionals to make sure that it conforms to established standards in health care. If the project is successful, the project team will approach the university's social counseling providers (provide link here) to discuss the viability of offering the bot as a service.
+
+\subsection*{Project approach}
+
+After obtaining the data, we will first focus on building a state-of-the-art classifier to decide whether a tweet shows symptoms of depression. The implementations and results described in (add papers here) will be used as a baseline for a neural network based approach. Once the model is able to accurately classify tweets, we will build the monitoring application. The system will take the form of a Twitter bot which actively monitors users. Since it is only viable (and ethical) to monitor consenting users, interested individuals will be asked to register on a seperate page and provide some information on what kind of intervention they are looking for. The bot then establishes a baseline for the newly registered users by classifying recent tweets of this user. Since some users might regularly post content which shows signs of depression without actually suffering, others might be more upbeat in general. The bot should only intervene if a user starts to show more signs of a depression then normally.
+
+After building a model and the related client, we will evaluate the performance of the bot with artificial accounts prior to 
 
 \end{document}
