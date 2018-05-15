@@ -1,0 +1,90 @@
+\documentclass[colorback,accentcolor=tud9c]{tudreport}
+\usepackage{ngerman}
+
+\usepackage[stable]{footmisc}
+\usepackage[ngerman]{hyperref}
+
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{booktabs}
+
+
+%%% Zum Tester der Marginalien %%%
+  \newif\ifTUDmargin\TUDmarginfalse
+  %%% Wird der Folgende Zeile einkommentiert,
+  %%% werden Marginalien gesetzt.
+  % \TUDmargintrue
+  \ifTUDmargin\makeatletter
+    \TUD@setmarginpar{2}
+  \makeatother\fi
+%%% ENDE: Zum Tester der Marginalien %%%
+
+\newlength{\longtablewidth}
+\setlength{\longtablewidth}{0.7\linewidth}
+\addtolength{\longtablewidth}{-\marginparsep}
+\addtolength{\longtablewidth}{-\marginparwidth}
+
+
+% \settitlepicture{tudreport-pic}
+% \printpicturesize
+
+\title{CoolProjectName -- Using a Twitter analysis to aid in self-care}
+\subtitle{Michael Troung-Ngoc\\Saidamir Ubaydullaev\\Claas V"olcker}
+%\setinstitutionlogo[width]{TUD_sublogo}
+\institution{Deep Learning - Architectures \& Methods\\Machine Learning Group}
+%\sponsor{\color{tud9b}\rule{\linewidth}{7mm}}
+\sponsor{\hfill\includegraphics[height=6ex]{tud_logo}\hspace{1em}\includegraphics[height=6ex]{TUD_chaos}}
+
+\begin{document}
+\maketitle
+%\begin{abstract}
+%    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed vitae ligula. Integer pharetra ornare eros. Phasellus vitae magna eget metus iaculis consectetuer. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut fringilla, elit id bibendum pharetra, enim nunc commodo lacus, vel consequat pede elit et massa. Nullam ac neque vel dui sodales malesuada. Phasellus sit amet magna. Nulla nisl metus, dictum et, ultricies vel, vestibulum ut, sem. Nulla nulla felis, gravida non, feugiat eget, interdum non, urna. Nunc nulla nunc, placerat pretium, varius in, dignissim a, eros. Quisque consequat, leo sit amet adipiscing pellentesque, nisl elit iaculis ipsum, quis tincidunt purus risus pulvinar enim. Nulla laoreet. Cras ullamcorper libero eget velit. Nam vel enim id tortor dignissim egestas. Pellentesque mi quam, porttitor sed, nonummy in, semper vitae, nisl. Duis ut dolor ut sem auctor dapibus. Nulla urna pede, facilisis a, hendrerit non, tincidunt vitae, orci. Mauris tincidunt posuere magna. Fusce blandit.
+%\end{abstract}  
+
+\tableofcontents
+
+\chapter{Introduction}
+
+\begin{itemize}
+    \item describe depression (very short)
+    \item describe twitter and twitter self care bot (@tinycarebot)
+    \item describe problem - care bots are general and not targeted
+    \item describe possible solution: targeted and proactive self-care bla
+    \item namedrop many papers
+\end{itemize}
+
+Michael
+
+\chapter{Project Outline}
+
+\begin{itemize}
+    \item gather data
+    \item preprocessing and infrastructure
+    \item build \& train machine learning model
+    \item test model
+    \item specify end goals and possible interventions of bot
+    \item build bot
+    \item test bot
+    \item get input form professionals, if possible, or at least users
+    \item look at possible additions and further uses of the bot
+    \begin{itemize}
+        \item e.g. location services and targeted intervention (local phone counseling, etc.)
+        \item chat bot o."a.
+    \end{itemize}
+\end{itemize}
+
+Claas
+
+\chapter{Data}
+\begin{itemize}
+    \item possible sources
+    \begin{itemize}
+        \item http://www.aclweb.org/anthology/W17-3104
+    \item Glen Coppersmith
+    \item CLPsych 2015 organizers
+    \end{itemize}
+\end{itemize}
+
+Saidamir
+
+\end{document}
