@@ -26,7 +26,7 @@ parser.add_argument("--gatherdata", help="commands the application to gather dat
 args = parser.parse_args()
 
 if args.gatherdata:
-    print('Yay')
+    load_data('data/dataset/depression_tagged/60Users_annotations.csv', 'data/dataset/full_tweets_depression.pickle')
 
 
 
