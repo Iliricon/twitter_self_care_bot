@@ -15,11 +15,13 @@
 \addtolength{\longtablewidth}{-\marginparsep}
 \addtolength{\longtablewidth}{-\marginparwidth}
 
-
+\defbibheading{secbib}[\bibname]{%
+  \section*{#1}%
+  \markboth{#1}{#1}}
 % \settitlepicture{tudreport-pic}
 % \printpicturesize
 
-\title{CoolProjectName -- Using a Twitter analysis to aid in self-care}
+\title{IntelligentCare -- Using deep learning and Twitter to enable self-care}
 \subtitle{Michael Troung-Ngoc\\Saidamir Ubaydullaev\\Claas V"olcker}
 %\setinstitutionlogo[width]{TUD_sublogo}
 \institution{Deep Learning - Architectures \& Methods\\Machine Learning Group}
@@ -33,64 +35,40 @@
 
 \section*{Introduction}
 
-\begin{itemize}
-    \item describe depression (very short)
-    \item describe twitter and twitter self care bot (@tinycarebot)
-    \item describe problem - care bots are general and not targeted
-    \item describe possible solution: targeted and proactive self-care bla
-    \item namedrop many papers
-    \item Goal: to showcase how deep learning can be used for a variety of real-world applications
-\end{itemize}
+Depression is a mental illness which is often difficult to recognize in early stages. Although it has common symptoms, affected people may have particular personal issues which can differ from the issues of other sufferers. Therefore, from the point of view of researchers or developers, there is a need in sophisticated model which can not only detect those who might be in depressive stage, but also address their issues as personally as possible.
 
-Michael
+Our first aim was to find a platform which would gather personal data that may represent the feelings of their users. Twitter is a well known social media (ca. 330 millions of active users per month) which can be used as an instrument for self-expression. Users can follow other users to interact with their shared messages called ``tweets``. Not all of them may have a positive vibe, which can be an indication of a tendency for depression. Our project was inspired by the twitter self care bot @tinycarebot\footnote{\href{https://twitter.com/tinycarebot?lang=de}{https://twitter.com/tinycarebot?lang=de}}, which reminds its follower about day-to-day activities which might be otherwise forgotten in everyday life. It is very popular, today, it has about 123.000 followers. The problem with @tinycarebot is that it does not consider the personal issues of its followers and it just offers general self-care tips. One possible solution would be to increase the bots intelligence by making use of the tweets of his followers, which it could analyze and make targeted decisions based on the personal situation of the followers. Requirement for that would be the pro-active approach of its users. The idea of our project would be to create a twitter bot which with the help of a neural network will learn to detect the followers with depressive tendencies and personally contact them in appropriate manner, i.e. send them messages related to their issues at the moment. Analyzing tweets for symptoms of depression has been attempted by other researchers before, for example by \textcite{nadeem_identifying_2016,coppersmith2015clpsych}. While there have been successes, to the best of our knowledge there have been no attempts to use neural networks or other deep learning approaches for such a task.
 
+The efficiacy of such self-care has been shown before by \textcite{levin1976self,berger_internet-based_2011}. In light of this research, the project should be seen as a proof-of-concept. Providing a self-care service for a larger audience should only be conducted in close cooperation with professionals to make sure that it conforms to established standards in health care. If the project is successful, the project team will approach the university's social counseling providers\footnote{\href{http://studierendenwerkdarmstadt.de/en/counseling-and-social-affairs/psychotherapeutische-beratungsstelle-2/}{http://studierendenwerkdarmstadt.de/en/counseling-and-social-affairs/psychotherapeutische-beratungsstelle-2/}} to discuss the viability of offering the bot as a service.
+
+It is important to stress that such a system can not replace a professional diagnosis and therapy. It is also questionable whether it can have a lasting effect on users with severe cases of clinical depression. It is however possible to help users who struggle with mild depression and related diseases and can be a part of holistic strategy of self-care and mindfulness.
 
 \section*{Data}
 \label{data}
-\begin{itemize}
-    \item possible sources
-    \begin{itemize}
-        \item http://www.aclweb.org/anthology/W17-3104
-    \item Glen Coppersmith
-    \item CLPsych 2015 organizers
-    \end{itemize}
-\end{itemize}
 
-Saidamir
+We have not found any publicly available datasets related to the topic of our research. Fortunately, there have been successful atempts to obtain useful data from Twitter, for example the works of \textcite{coppersmith2015clpsych,jamil_monitoring_2017}. 
+
+Researchers from the University of Ottawa gathered 156,612 tweets from 25,362 Twitter users and, after preprossessing, have created four datasets, consisting of self-reported data of users with depression as wells as control data. One of these datasets was obtained from the shared task at CLPsych, consisting of data about 1,746 users with different mental illnesses such as depression and PTSD.
+
+We would like to contact both of these research teams as well as authors of other prior research to get those datasets for our own approach. 
 
 \section*{Project Outline}
-
-%\begin{itemize}
-%    \item gather data
-%    \item preprocessing and infrastructure
-%    \item build \& train machine learning model
-%    \item test model
-%    \item specify end goals and possible interventions of bot
-%    \item build bot
-%    \item test bot
-%    \item get input form professionals, if possible, or at least users
-%    \item look at possible additions and further uses of the bot
-%    \begin{itemize}
-%        \item e.g. location services and targeted intervention (local phone counseling, etc.)
-%        \item chat bot o."a.
-%    \end{itemize}
-%\end{itemize}
 
 The main component of the Twitter SelfCare Bot is a service, which reads users' tweets and monitors their percieved mental health. Whenever the mental health of a user seems to degrade, for example due to tweets which show more signs of depression, the bot intervenes and posts helpful self-care hints. The details of this intervention need to be specified at a later steps. Possible components could range from general self-care tips to concrete solutions based on the location and history of the user.
 
 To enable the bot to autonomously monitor users and their behavior, the patterns common among users suffering from depression can be learned as outlined in Chapter \ref{data}. Using the datasets, a classifier based on a neural network will be trained to categorize a users tweets. If several tweets during a specific amount of time are classified as showing symptoms of a depression, the bot classifies the user as ''at risk'' and starts the intervention.
 
-It is important to stress that such a system can not replace a professional diagnosis and therapy. It is also questionable whether it can have a lasting effect on users with severe cases of clinical depression. It is however possible to help users who struggle with mild depression and related diseases and can be a part of holistic strategy of self-care and mindfulness.
 
-The project should also be seen as a proof-of-concept. Providing such a service for a larger audience should only be conducted in close cooperation with health-care professionals to make sure that it conforms to established standards in health care. If the project is successful, the project team will approach the university's social counseling providers (provide link here) to discuss the viability of offering the bot as a service.
 
 \subsection*{Project approach}
 
 After obtaining the data, we will first focus on building a state-of-the-art classifier to decide whether a tweet shows symptoms of depression. The implementations and results described in (\cite{nadeem_identifying_2016,coppersmith2015clpsych,jamil_monitoring_2017}) will be used as a baseline for a neural network based approach. Once the model is able to accurately classify tweets, we will build the monitoring application. The system will take the form of a Twitter bot which actively monitors users. Since it is only viable (and ethical) to monitor consenting users, interested individuals will be asked to register on a seperate page and provide some information on what kind of intervention they are looking for. The bot then establishes a baseline for the newly registered users by classifying recent tweets of this user. Since some users might regularly post content which shows signs of depression without actually suffering, others might be more upbeat in general. The bot should only intervene if a user starts to show more signs of a depression then normally.
 
-After building a model and the related client, we will evaluate the performance of the bot with artificial accounts prior to 
+After building a model and the related client, we will evaluate the performance of the bot with artificial accounts prior to hosting it as a public service.
 
-%\bibliographystyle{acm}
-\printbibliography 
+\subsection*{Feasibility of the project}
+The project's scope is very ambitious and it stands to reason, that it will not be possible to complete all stages during the course. The project team will consider the project to be a success if the deep learning model for classifying tweets works at least as well as the established baselines and if it can be integrated with the Twitter bot API. All additional steps are stretch goals which will be attempted if there is still time during the project.
+
+\printbibliography[heading=secbib]
 
 \end{document}

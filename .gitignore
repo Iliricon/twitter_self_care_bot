@@ -353,4 +353,5 @@ TSWLatexianTemp*
 
 # added for data privay reasons
 
-src/data/*
+src/data/dataset/*
+src/data/secrets.txt
