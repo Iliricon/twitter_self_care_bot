@@ -349,3 +349,8 @@ TSWLatexianTemp*
 
 # generated if using elsarticle.cls
 *.spl
+
+
+# added for data privay reasons
+
+src/data/*
