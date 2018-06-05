@@ -355,3 +355,4 @@ TSWLatexianTemp*
 
 src/data/dataset/*
 src/data/secrets.txt
+src/model/word2vec_twitter_model.bin
